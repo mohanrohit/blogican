@@ -1,0 +1,29 @@
+body
+{
+    font-family: "liberation sans", "sans-serif";
+    font-size: 11pt;
+}
+
+code
+{
+    background-color: #f0f0f0;
+    border: 1px solid lightgrey;
+    color: brown;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+pre, code
+{
+    font-family: "liberation mono", "monospace";
+    font-size: 10pt;
+}
+
+.codehilite
+{
+    padding-left: 8px;
+    /*border-left: 2px solid green;*/
+    margin-left: 8px;
+    font-family: "liberation mono", "monospace";
+    font-size: 10pt;
+}

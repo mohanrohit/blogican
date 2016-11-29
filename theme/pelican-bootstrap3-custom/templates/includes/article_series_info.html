@@ -1,0 +1,7 @@
+{% if article.series %}
+<div class="panel">
+    <div class="panel-body">
+        <span class="label label-warning"> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
+    </div>
+</div>
+{% endif %}

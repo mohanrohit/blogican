@@ -1,0 +1,39 @@
+<p>By and large, I love programming in Python. I like the elegance of the language, and I find its principle of minimalism rather endearing. Nothing beats succinct. At the same time, though, there are times when I wished it was a little <em>less</em> succinct. One of the instances is the absence of markers for the end of a structure. An <code>if</code> statement, for example, is written as:</p>
+<p>if condition:
+  statement
+  statement
+  statement
+  ...</p>
+<p>and that's it. No terminating <code>end</code> or <code>endif</code>. The same goes for <code>class</code>es, <code>while</code> loops, and every other compound statement. Python zealots might decry this as heresy, but I find I read and parse code better when there is a visual indicator for the end of a statement. This tripped me up most recently when I was tinkering with a Flask application. See if you can find the difference between the two pieces of code below:</p>
+<p>code 1
+code 2</p>
+<p>To me, it wasn't apparent why I was getting an error, when function <code>x</code> was clearly defined. It took me a little while to figure out that I had inadvertantly <em>indented</em> <code>x</code>, so now it was at the same indentation level as the <code>if</code> statement, which made it an inner function to <code>f</code>. Had there been a simple <code>end</code> statement to terminate <code>f</code>, the indentation error would have been glaringly obvious &ndash; in fact, there might not <em>have</em> been an indentation error in the first place. A simple <code>end</code> &ndash; that's all it would have taken to save time and aggravation. Why did the designers of Python leave a compound statement terminator out of the language? I don't know, but I wondered if I could <em>add</em> an <code>end</code> statement to Python, without actually rebuilding the interpreter. There are ways to add new features to the language [link], but I didn't want a tiny change like adding a no-op <code>end</code> statement to balloon into that much of an effort. I wanted something that was minimally invasive.</p>
+<p>An old memory stirred inside me, of an accidental literal left in an old C++ program I once wrote. It went something like this.</p>
+<p>Instead of writing:</p>
+<pre><code>int newValue = 42.2; // or something similar
+</code></pre>
+<p>I had accidentally written:</p>
+<pre><code>int newValue = 42;2;
+</code></pre>
+<p>which made the <code>2;</code> a standalone C++ statement that did nothing, and it was compiled and optimized out of the program. But remembering that, I wondered if that would also work for Python. So I did this little experiment:</p>
+<pre><code>if 2 == 3:
+  print "That's nuts!"
+else:
+  print "Of course not!"
+0
+</code></pre>
+<p>And guess what? The program ran just fine. You try it.</p>
+<p>From there it was a small step to replace the zero with the word <code>end</code>:</p>
+<pre><code>end = 0
+
+if 2 == 3:
+  print "That's nuts!"
+else:
+  print "Of course not!"
+end
+</code></pre>
+<p>Et voila! An <code>end</code> statement for Python, just for convenience and peace of mind. No rebuilding the interpreter, no mucking with the AST, nothing. Of course it means you can't use <code>end</code> as an identifier any more, and you have to remember to define it at the beginning of every source file, but that's a small price to pay for the visual clarity. At least for me.</p>
+<p>I went even further and made it a module called <code>end_statement</code> to make it more obvious, so now I could do</p>
+<pre><code>from end_statement import end
+</code></pre>
+<p>at the beginning of each source file, and it'd be clear what the intent was instead of having to remember to add <code>end = 0</code> everywhere.</p>
