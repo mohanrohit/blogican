@@ -5,17 +5,26 @@
         <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
     -->
+    <i class="fa fa-calendar"></i>
+    <span class="published label label-default">
+        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+    </span>
+
     {% if SHOW_ARTICLE_AUTHOR %}
         {% if article.author %}
+            &nbsp;
             <i class="fa fa-user"></i>
             <a class="label label-primary" href="{{ SITEURL }}/{{ article.author.url }}"> {{ article.author }}</a>
         {% endif %}
     {% endif %}
 
-    <i class="fa fa-calendar"></i>
-    <span class="published label label-info">
-        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-    </span>
+    {% if SHOW_SERIES %}
+        {% if article.series %}
+            &nbsp;
+            <i class="fa fa-list-ul"></i>
+            <span class="label label-warning"> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
+        {% endif %}
+    {% endif %}
 
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
@@ -23,13 +32,6 @@
             <span class="modified">
                 <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
             </span>
-        {% endif %}
-    {% endif %}
-
-    {% if SHOW_SERIES %}
-        {% if article.series %}
-            <span class="label label-default">Series</span>
-            Part {{ article.series.index}} of {{ article.series.name }}
         {% endif %}
     {% endif %}
 
@@ -48,3 +50,4 @@
     {% import 'includes/translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
 </footer><!-- /.post-info -->
+

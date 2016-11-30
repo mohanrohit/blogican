@@ -169,7 +169,18 @@
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
         {% if not HIDE_SIDEBAR or ABOUT_ME %}
-        <div class="col-sm-3" id="sidebar">
+        <div class="col-md-8">
+        {% else %}
+        <div class="col-lg-12">
+        {% endif %}
+        {% block breadcrumbs %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        </div>
+
+        {% if not HIDE_SIDEBAR or ABOUT_ME %}
+        <div class="col-md-4" id="sidebar">
             <aside>
             {% if ABOUT_ME %}
                 {% include 'includes/aboutme.html' %}
@@ -180,16 +191,6 @@
             </aside>
         </div>
         {% endif %}
-        {% if not HIDE_SIDEBAR or ABOUT_ME %}
-        <div class="col-sm-9">
-        {% else %}
-        <div class="col-lg-12">
-        {% endif %}
-        {% block breadcrumbs %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
-        </div>
     </div>
 </div>
 {% include 'includes/footer.html' %}

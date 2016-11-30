@@ -11,7 +11,13 @@ RELATIVE_URLS = True
 
 AUTHOR = u'Rohit Mohan'
 
-IGNORE_FILES = ["web-development-python-and-flask/*"]
+IGNORE_FILES = [
+  "tech/web-development-with-python-and-flask/*",
+  "tech/pyflask/*",
+  "tech/pygae/*",
+  "tech/web-development-with-python-and-flask/backup/*",
+  "tech/web-development-with-python-and-gae/*"
+]
 
 SUMMARY_MAX_LENGTH = 50
 
@@ -28,15 +34,14 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 DISPLAY_TAGS_INLINE = False
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
-DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_CATEGORIES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_SIDEBAR = False
 
 PLUGIN_PATHS = [current_directory + "/plugins"]
-#PLUGINS = ["series", "tag_cloud"]
 PLUGINS = ["series"]
 
 DISPLAY_SERIES_ON_SIDEBAR = False
-SHOW_SERIES = False
+SHOW_SERIES = True
 SERIES_TEXT = "" #"Part <strong>%(index)s</strong> of the <strong>%(name)s</strong> series"
 
 SHOW_ARTICLE_AUTHOR = True

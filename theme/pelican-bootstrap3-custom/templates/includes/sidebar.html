@@ -2,7 +2,7 @@
     {% set DISPLAY_TAGS_ON_SIDEBAR = True %}
 {% endif %}
 
-<section class="well well-sm">
+<section>
     {#
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -27,23 +27,23 @@
         </div>
     </div>
     #}
-    {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
-        {% if RECENT_POST_COUNT is not defined %}
-            {% set RECENT_POST_COUNT = 5 %}
-        {% endif %}
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h4 class="panel-title"><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-          </div>
-          <div class="panel-body">
-            <ul class="list-group" id="recentposts">
-            {% for article in articles[:RECENT_POST_COUNT] %}
-                <li class="list-group-item">
-                    <a href="{{ SITEURL }}/{{ article.url }}"><span class="label label-success">{{ article.title }}</span></a>
-                </li>
-            {% endfor %}
-            </ul>
-          </div>            
+    {% if DISPLAY_TAGS_ON_SIDEBAR %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
+              {% for tag, articles in tags|sort %}
+                  <li class="list-group-item">
+                    <i class="fa fa-rss"></i>
+                    <a href="{{ SITEURL }}/{{ tag.url }}">
+                      <span class="label label-info">{{ tag|lower }}</span></a>
+                    <span class="label label-nobg">{{articles|count}}</span>
+                  </li>
+              {% endfor %}
+              </ul>
+            </div>
         </div>
     {% endif %}
 
@@ -66,23 +66,23 @@
         </div>
     {% endif %}
 
-    {% if DISPLAY_TAGS_ON_SIDEBAR %}
+    {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+        {% if RECENT_POST_COUNT is not defined %}
+            {% set RECENT_POST_COUNT = 5 %}
+        {% endif %}
         <div class="panel panel-info">
-            <div class="panel-heading">
-              <a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
-              {% for tag, articles in tags|sort %}
-                  <li class="list-group-item">
-                    <i class="fa fa-rss"></i>
-                    <a href="{{ SITEURL }}/{{ tag.url }}">
-                      <span class="label label-success">{{ tag|lower }}</span></a>
-                    <span class="label label-nobg">{{articles|count}}</span>
-                  </li>
-              {% endfor %}
-              </ul>
-            </div>
+          <div class="panel-heading">
+            <h4 class="panel-title"><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent</span></h4>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group" id="recentposts">
+            {% for article in articles[:RECENT_POST_COUNT] %}
+                <li class="list-group-item">
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+          </div>            
         </div>
     {% endif %}
 
@@ -113,11 +113,13 @@
             {% endif %}
         {% endif %}
     {% endif %}
-    <ul class="list-group list-group-flush">
+    <!--<ul class="list-group list-group-flush">-->
+    {#
     {% include 'includes/github.html' %}
     {% include 'includes/twitter_timeline.html' %}
     {% include 'includes/links.html' %}
     {% include 'includes/sidebar-images.html' %}
-    </ul>
+    #}
+    <!--</ul>-->
 </section>
 

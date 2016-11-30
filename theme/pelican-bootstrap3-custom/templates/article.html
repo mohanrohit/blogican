@@ -78,14 +78,9 @@
                         {{ article.title }}
                     </a>
                 </h1>
-                {% include "includes/article_series_info.html" %}
+                {% include "includes/article_info.html" %}
             </header>
             <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-                        {% include "includes/article_info.html" %}
-                    </div>
-                </div>
                 {% include 'includes/series.html' %}
                 {{ article.content }}
                 {% include 'includes/series.html' %}

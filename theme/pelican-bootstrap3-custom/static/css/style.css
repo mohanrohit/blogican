@@ -260,7 +260,7 @@ pre
 .page-header
 {
     margin: 42px 0 0 0;
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 .panel-body
@@ -315,15 +315,6 @@ pre
   border-radius: 0px;
 }
 
-/*
-.pager li > span
-{
-  border-radius: 0px;
-  background-color: transparent;
-  border: none;
-}
-*/
-
 .pager > li.previous > span.title,
 .pager > li.next > span.title
 {
@@ -348,4 +339,9 @@ pre
 {
     color: white;
     background-color: #3a87ad;
+}
+
+div.entry-content
+{
+    margin-top: 20px;
 }
