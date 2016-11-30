@@ -28,6 +28,7 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 DISPLAY_TAGS_INLINE = False
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
+DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
 
 PLUGIN_PATHS = [current_directory + "/plugins"]
@@ -73,6 +74,5 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
-
 
 LOAD_CONTENT_CACHE = True

@@ -7,7 +7,7 @@ PELICAN=${PELICAN:-pelican}
 PELICANOPTS=
 
 BASEDIR=$(pwd)
-INPUTDIR=/cygdrive/g/Users/diovf464/Dropbox/pensieve/drafts
+INPUTDIR=$PELICAN_INPUTDIR
 OUTPUTDIR=$BASEDIR/output-live
 CONFFILE=$BASEDIR/publishconf.py
 

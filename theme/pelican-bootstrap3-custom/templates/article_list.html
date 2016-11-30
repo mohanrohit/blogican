@@ -4,12 +4,11 @@
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
                 <h2>
-                {% if article.series %}
-                    <i class="fa fa-list-ul"></i>
-                {% endif %}
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
                 </h2>
+                {% if article.series %}
                 {% include "includes/article_series_info.html" %}
+                {% endif %}
                 {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
                     <div class="well well-sm">
                         {% include "includes/article_info.html" %}

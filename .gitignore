@@ -91,3 +91,5 @@ ENV/
 # Pelican directories
 output-drafts/
 output-live/
+output/
+
