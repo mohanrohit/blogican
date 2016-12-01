@@ -9,6 +9,8 @@ SITENAME = u"Pelican"
 SITEURL = ''
 RELATIVE_URLS = True
 
+STATIC_PATHS = ["static"]
+
 AUTHOR = u'Rohit Mohan'
 
 IGNORE_FILES = [

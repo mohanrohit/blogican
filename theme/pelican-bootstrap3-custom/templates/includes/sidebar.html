@@ -28,17 +28,16 @@
     </div>
     #}
     {% if DISPLAY_TAGS_ON_SIDEBAR %}
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
-              <a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+              <!--<a href="{{ SITEURL }}/{{ TAGS_URL }}">--><h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Topics</span></h4><!--</a>-->
             </div>
             <div class="panel-body">
               <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
               {% for tag, articles in tags|sort %}
                   <li class="list-group-item">
-                    <i class="fa fa-rss"></i>
-                    <a href="{{ SITEURL }}/{{ tag.url }}">
-                      <span class="label label-info">{{ tag|lower }}</span></a>
+                    <img src="/static/images/rss-sm.png"></img>
+                    <a class="label label-info" href="{{ SITEURL }}/{{ tag.url }}">{{ tag|lower }}</a>
                     <span class="label label-nobg">{{articles|count}}</span>
                   </li>
               {% endfor %}
@@ -48,7 +47,7 @@
     {% endif %}
 
     {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
             <div class="panel-heading">
               <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4 class="panel-title"><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
             </div>
@@ -70,7 +69,7 @@
         {% if RECENT_POST_COUNT is not defined %}
             {% set RECENT_POST_COUNT = 5 %}
         {% endif %}
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h4 class="panel-title"><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent</span></h4>
           </div>

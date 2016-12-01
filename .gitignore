@@ -88,8 +88,9 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# Pelican directories
+# Pelican files
 output-drafts/
 output-live/
 output/
+*.pid
 
