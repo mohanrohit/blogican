@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 
 from pelicanconf import *
 
-SITEURL = 'http://localhost:8000'
+SITEURL = os.environ.get("PELICAN_SITEURL") or "" # 'http://localhost:8000' <-- "ip-address:port"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
