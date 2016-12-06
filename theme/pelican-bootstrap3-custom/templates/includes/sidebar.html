@@ -46,6 +46,31 @@
         </div>
     {% endif %}
 
+    {% if DISPLAY_SERIES_ON_SIDEBAR %}
+        {% if article %}
+            {% if article.series %}
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">{{article.series.name}}</span></h4>
+                  </div>
+                  <div class="panel-body">                    
+                    <ol class="list-group">
+                        {% for a in article.series.all %}
+                        <li class="list-group-item">
+                            {% if a == article %}
+                            <strong>{{a.title}}</strong>
+                            {% else %}
+                            <a href="{{ SITEURL }}/{{ a.url }}">{{a.title}}</a>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
     {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -85,7 +110,6 @@
         </div>
     {% endif %}
 
-    {#
     {% if DISPLAY_SERIES_ON_SIDEBAR %}
         {% if article %}
             {% if article.series %}
@@ -113,34 +137,7 @@
             {% endif %}
         {% endif %}
     {% endif %}
-    #}
-    {% if DISPLAY_SERIES_ON_SIDEBAR %}
-        {% if article %}
-            {% if article.series %}
-                <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
-                  </div>
-                  <div class="panel-body">                    
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                        {% if article.series.previous %}
-                            <h5></i> Previous article</h5>
-                            <a href="{{ SITEURL }}/{{ article.series.previous.url }}">{{ article.series.previous.title }}</a>
-                        {% endif %}
-                        </li>
-                        <li class="list-group-item">
-                        {% if article.series.next %}
-                            <h5>Next article</h5>
-                            <a href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}</a>
-                        {% endif %}
-                        </li>
-                    </ul>
-                  </div>
-                </div>
-            {% endif %}
-        {% endif %}
-    {% endif %}
+
     <!--<ul class="list-group list-group-flush">-->
     {#
     {% include 'includes/github.html' %}
