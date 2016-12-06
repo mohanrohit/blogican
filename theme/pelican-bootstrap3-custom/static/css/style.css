@@ -81,10 +81,23 @@ a, a:hover {
     color: inherit;
 }
 
+#recentposts a, #recentposts a:hover,
+#series a, #series a:hover
+{
+    color: #428bca;
+}
+
+#recentposts a:hover,
+#series a:hover
+{
+    text-decoration: none;
+    color: #66a;
+}
+
 .entry-content a {
     text-decoration: none;
     /*border-bottom: 1px dotted;*/
-    color:#428bca
+    color:#428bca;
 }
 
 .entry-content a:hover {
@@ -277,7 +290,13 @@ pre
 
 .list-group-item
 {
-    padding: 1px 8px;
+    padding: 1px 12px;
+    list-style-position: inside;
+}
+
+#tags .list-group-item
+{
+    list-style: none;
 }
 
 .label-nobg

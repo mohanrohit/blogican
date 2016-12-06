@@ -30,7 +30,7 @@
     {% if DISPLAY_TAGS_ON_SIDEBAR %}
         <div class="panel panel-primary">
             <div class="panel-heading">
-              <!--<a href="{{ SITEURL }}/{{ TAGS_URL }}">--><h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Topics</span></h4><!--</a>-->
+              <h4 class="panel-title"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Topics</span></h4><!--</a>-->
             </div>
             <div class="panel-body">
               <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
@@ -54,9 +54,9 @@
                     <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">{{article.series.name}}</span></h4>
                   </div>
                   <div class="panel-body">                    
-                    <ol class="list-group">
+                    <ol id="series">
                         {% for a in article.series.all %}
-                        <li class="list-group-item">
+                        <li>
                             {% if a == article %}
                             <strong>{{a.title}}</strong>
                             {% else %}
@@ -99,43 +99,15 @@
             <h4 class="panel-title"><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent</span></h4>
           </div>
           <div class="panel-body">
-            <ul class="list-group" id="recentposts">
+            <ul id="recentposts">
             {% for article in articles[:RECENT_POST_COUNT] %}
-                <li class="list-group-item">
+                <li>
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
                 </li>
             {% endfor %}
             </ul>
           </div>            
         </div>
-    {% endif %}
-
-    {% if DISPLAY_SERIES_ON_SIDEBAR %}
-        {% if article %}
-            {% if article.series %}
-                <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
-                  </div>
-                  <div class="panel-body">                    
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                        {% if article.series.previous %}
-                            <h5></i> Previous article</h5>
-                            <a href="{{ SITEURL }}/{{ article.series.previous.url }}">{{ article.series.previous.title }}</a>
-                        {% endif %}
-                        </li>
-                        <li class="list-group-item">
-                        {% if article.series.next %}
-                            <h5>Next article</h5>
-                            <a href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}</a>
-                        {% endif %}
-                        </li>
-                    </ul>
-                  </div>
-                </div>
-            {% endif %}
-        {% endif %}
     {% endif %}
 
     <!--<ul class="list-group list-group-flush">-->
