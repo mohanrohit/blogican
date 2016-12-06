@@ -36,7 +36,7 @@
               <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
               {% for tag, articles in tags|sort %}
                   <li class="list-group-item">
-                    <a href="/tag/{{tag|e}}/feed/rss.xml"><img src="/static/images/rss-sm.png"></img></a>
+                    <a href="/tag/{{tag.slug}}/feed/rss.xml"><img src="/static/images/rss-sm.png"></img></a>
                     <a class="label label-info" href="{{ SITEURL }}/{{ tag.url }}">{{ tag|lower }}</a>
                     <span class="label label-nobg">{{articles|count}}</span>
                   </li>
@@ -85,6 +85,35 @@
         </div>
     {% endif %}
 
+    {#
+    {% if DISPLAY_SERIES_ON_SIDEBAR %}
+        {% if article %}
+            {% if article.series %}
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
+                  </div>
+                  <div class="panel-body">                    
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                        {% if article.series.previous %}
+                            <h5></i> Previous article</h5>
+                            <a href="{{ SITEURL }}/{{ article.series.previous.url }}">{{ article.series.previous.title }}</a>
+                        {% endif %}
+                        </li>
+                        <li class="list-group-item">
+                        {% if article.series.next %}
+                            <h5>Next article</h5>
+                            <a href="{{ SITEURL }}/{{ article.series.next.url }}">{{ article.series.next.title }}</a>
+                        {% endif %}
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    #}
     {% if DISPLAY_SERIES_ON_SIDEBAR %}
         {% if article %}
             {% if article.series %}

@@ -82,12 +82,14 @@ a, a:hover {
 
 .entry-content a {
     text-decoration: none;
-    border-bottom: 1px dotted;
+    /*border-bottom: 1px dotted;*/
+    color:#428bca
 }
 
 .entry-content a:hover {
     text-decoration: none;
-    border-bottom: 1px solid;
+    color: #66a;
+    /*border-bottom: 1px solid;*/
 }
 
 .entry-content img {
