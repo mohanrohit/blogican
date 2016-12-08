@@ -36,7 +36,7 @@
               <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline {% endif %}" id="tags">
               {% for tag, articles in tags|sort %}
                   <li class="list-group-item">
-                    <a href="/tag/{{tag.slug}}/feed/rss.xml"><img src="/static/images/rss-sm.png"></img></a>
+                    <a href="/tag/{{tag.slug}}/feed/rss.xml"><img src="/theme/images/rss-sm.png"></img></a>
                     <a class="label label-info" href="{{ SITEURL }}/{{ tag.url }}">{{ tag|lower }}</a>
                     <span class="label label-nobg">{{articles|count}}</span>
                   </li>
