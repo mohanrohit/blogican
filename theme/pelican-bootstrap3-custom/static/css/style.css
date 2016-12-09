@@ -82,13 +82,15 @@ a, a:hover {
 }
 
 #recentposts a, #recentposts a:hover,
-#series a, #series a:hover
+#series a, #series a:hover,
+#series_list a, #series_list a:hover
 {
     color: #428bca;
 }
 
 #recentposts a:hover,
-#series a:hover
+#series a:hover,
+#series_list a:hover
 {
     text-decoration: none;
     color: #66a;

@@ -40,11 +40,13 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_SIDEBAR = False
 
 PLUGIN_PATHS = [current_directory + "/plugins"]
-PLUGINS = ["series"]
+PLUGINS = ["series", "series_list"]
 
 DISPLAY_SERIES_ON_SIDEBAR = True
 SHOW_SERIES = False
 SERIES_TEXT = "" #"Part <strong>%(index)s</strong> of the <strong>%(name)s</strong> series"
+
+DISPLAY_ALL_SERIES_ON_SIDEBAR = True
 
 SHOW_ARTICLE_AUTHOR = True
 

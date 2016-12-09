@@ -1,7 +1,5 @@
 {% if article.series %}
 <div class="panel">
-    <div class="panel-body">
-        <span class="label label-warning"><i class="fa fa-list-ul"></i> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
-    </div>
+  <span class="label label-warning"><i class="fa fa-list-ul"></i> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
 </div>
 {% endif %}

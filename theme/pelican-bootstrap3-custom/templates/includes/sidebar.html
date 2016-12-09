@@ -46,6 +46,27 @@
         </div>
     {% endif %}
 
+    {% if DISPLAY_ALL_SERIES_ON_SIDEBAR %}
+        {% if article %}
+            {% if article.category.series_list %}
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">All series in {{article.category}}</span></h4>
+              </div>
+              <div class="panel-body">                    
+                <ul class="list-group" id="series_list">
+                    {% for i in article.category.series_list %}
+                    <li class="list-group-item">
+                        <a href="{{ SITEURL }}/{{ i.url }}">{{i.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
     {% if DISPLAY_SERIES_ON_SIDEBAR %}
         {% if article %}
             {% if article.series %}
@@ -99,10 +120,13 @@
             <h4 class="panel-title"><i class="fa fa-clock-o fa-lg"></i><span class="icon-label">Recent</span></h4>
           </div>
           <div class="panel-body">
-            <ul id="recentposts">
+            <ul class="list-group" id="recentposts">
             {% for article in articles[:RECENT_POST_COUNT] %}
-                <li>
+                <li class="list-group-item">
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    {% if article.series %}
+                    <span class="label label-warning"><i class="fa fa-list-ul"></i></span>
+                    {% endif %}
                 </li>
             {% endfor %}
             </ul>
