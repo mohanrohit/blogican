@@ -1,33 +1,16 @@
 {% if article.series %}
-<section class="well well-sm" style="text-align: center">
+{% if SHOW_SERIES %}
+    {% if article.series %}
+        &nbsp;
+        <span class="label label-warning" style="margin-left: -9px"><i class="fa fa-list-ul"></i> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
+    {% endif %}
+{% endif %}
+
+<section class="well well-sm">
     {% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
 
     <span>{{ text|format(index=article.series.index, name=article.series.name) }}</span>
 
-    {#
-    <ul class="pager">
-      {% if article.series.previous %}
-        {% set previous_article = article.series.previous %}
-        <li class="previous"><a href="{{ SITEURL }}/{{ previous_article.url }}" data-toggle="tooltip" title="{{previous_article.title}}">&#x276e; Previous</a></li>
-      {% endif %}
-
-      {% if article.series.next %}
-        {% set next_article = article.series.next %}
-        <li class="next"><a href="{{ SITEURL }}/{{ next_article.url }}" data-toggle="tooltip" title="{{next_article.title}}">Next &#x276f;</a></li>
-      {% endif %}
-    </ul>
-    <ul class="pager">
-      {% if article.series.previous %}
-        {% set previous_article = article.series.previous %}
-        <li class="previous"><span class="title">{{ previous_article.title }}</span></li>
-      {% endif %}
-
-      {% if article.series.next %}
-        {% set next_article = article.series.next %}
-        <li class="next"><span class="title">{{ next_article.title }}</span></li>
-      {% endif %}
-    </ul>
-    #}
 
     <ul class="pager">
       {% if article.series.previous %}

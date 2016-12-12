@@ -43,7 +43,7 @@ PLUGIN_PATHS = [current_directory + "/plugins"]
 PLUGINS = ["series", "series_list"]
 
 DISPLAY_SERIES_ON_SIDEBAR = True
-SHOW_SERIES = False
+SHOW_SERIES = True
 SERIES_TEXT = "" #"Part <strong>%(index)s</strong> of the <strong>%(name)s</strong> series"
 
 DISPLAY_ALL_SERIES_ON_SIDEBAR = True

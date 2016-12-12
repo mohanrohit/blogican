@@ -29,4 +29,6 @@ DELETE_OUTPUT_DIRECTORY = False
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "rohits-pensieve"
+DISQUS_DISPLAY_COUNTS = False
+
 #GOOGLE_ANALYTICS = ""
