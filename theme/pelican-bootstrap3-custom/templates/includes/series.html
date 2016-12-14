@@ -2,11 +2,13 @@
 {% if SHOW_SERIES %}
     {% if article.series %}
         &nbsp;
-        <span class="label label-warning" style="margin-left: -9px"><i class="fa fa-list-ul"></i> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
+        <span class="label label-warning" style="border-radius: 0"><i class="fa fa-list-ul"></i> <em>{{article.series.name}}</em>, part {{article.series.index}} of {{article.series.all|count}}</span>
     {% endif %}
 {% endif %}
 
-<section class="well well-sm">
+<!--
+{#
+<section class="well well-sm" style="border-radius: 0">
     {% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
 
     <span>{{ text|format(index=article.series.index, name=article.series.name) }}</span>
@@ -24,4 +26,77 @@
       {% endif %}
     </ul>
 </section>
+#}
+-->
+
+<section class="well well-sm" style="border-radius: 0">
+    {% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
+
+    <span>{{ text|format(index=article.series.index, name=article.series.name) }}</span>
+
+
+    <ul class="pager">
+      {% if article.series.previous %}
+        {% set previous_article = article.series.previous %}
+        <li class="previous"><a href="{{ SITEURL }}/{{ previous_article.url }}">&#x276e; Previous</a></li>
+      {% endif %}
+
+      {% if article.series.next %}
+        {% set next_article = article.series.next %}
+        <li class="next"><a href="{{ SITEURL }}/{{ next_article.url }}">Next &#x276f;</a></li>
+      {% endif %}
+    </ul>
+
+    <ul class="pager">
+      {% if article.series.previous %}
+        {% set previous_article = article.series.previous %}
+        <li class="previous"><span class="label label-default label-nobg" style="background-color: transparent; border: none; padding-left: 0">{{previous_article.title}}</span></li>
+      {% endif %}
+
+      {% if article.series.next %}
+        {% set next_article = article.series.next %}
+        <li class="next"><span class="label label-default label-nobg" style="background-color: transparent; border: none; padding-right: 0">{{next_article.title}}</span></li>
+      {% endif %}
+    </ul>
+
+</section>
+
+<!--
+{#
+<section class="well well-sm" style="border-radius: 0">
+    {% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
+
+    <span>{{ text|format(index=article.series.index, name=article.series.name) }}</span>
+
+
+    <ul class="pager">
+      {% if article.series.previous %}
+        {% set previous_article = article.series.previous %}
+        <li class="previous"><a href="{{ SITEURL }}/{{ previous_article.url }}">&#x276e; Previous</a>prev</li>
+        <li class="previous label label-default"><a class="label label-default label-nobg">{{previous_article.title}}</a></li>
+      {% endif %}
+
+      {% if article.series.next %}
+        {% set next_article = article.series.next %}
+        <li class="next"><a href="{{ SITEURL }}/{{ next_article.url }}">Next &#x276f;</a>next</li>
+        <li class="next label label-default">{{next_article.title}}</li>
+      {% endif %}
+    </ul>
+
+    <ul class="pager">
+      {% if article.series.previous %}
+        {% set previous_article = article.series.previous %}
+        <li class="previous label label-default">{{previous_article.title}}</li>
+      {% endif %}
+
+      {% if article.series.next %}
+        {% set next_article = article.series.next %}
+        <li class="next label label-default">{{next_article.title}}</li>
+      {% endif %}
+    </ul>
+
+</section>
+#}
+-->
+
 {% endif %}

@@ -9,6 +9,10 @@ SITENAME = u"Pelican"
 SITEURL = ''
 RELATIVE_URLS = True
 
+DATE_FORMATS = {
+  "en": "%Y %b %d"
+}
+
 STATIC_PATHS = ["static"]
 
 AUTHOR = u'Rohit Mohan'
