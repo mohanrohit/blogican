@@ -85,7 +85,7 @@ a, a:hover {
 #series a, #series a:hover,
 #series_list a, #series_list a:hover
 {
-    color: #428bca;
+    color: #0000f0;
 }
 
 #recentposts a:hover,
@@ -99,7 +99,7 @@ a, a:hover {
 .entry-content a {
     text-decoration: none;
     /*border-bottom: 1px dotted;*/
-    color:#428bca;
+    color:#0000ff;
 }
 
 .entry-content a:hover {
@@ -275,6 +275,9 @@ code, pre
 pre
 {
     font-size: 0.9em;
+    border-radius: 0;
+    border: none;
+    border-left: 4px solid silver;
 }
 
 h1

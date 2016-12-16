@@ -27,6 +27,8 @@ IGNORE_FILES = [
 
 SUMMARY_MAX_LENGTH = 50
 
+DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'authors', 'archives', 'search'))
+
 # theming
 
 THEME = current_directory + "/theme/pelican-bootstrap3-custom"
@@ -45,6 +47,7 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = False
 
 PLUGIN_PATHS = [current_directory + "/plugins"]
 PLUGINS = ["series", "series_list"]
+# PLUGINS = ["series", "series_list", "tipue_search"]
 
 DISPLAY_SERIES_ON_SIDEBAR = True
 SHOW_SERIES = True
