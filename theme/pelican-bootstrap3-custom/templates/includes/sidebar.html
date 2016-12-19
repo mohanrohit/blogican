@@ -64,6 +64,29 @@
               </div>
             </div>
             {% endif %}
+        {% else %}
+            {% for category_item, articles in categories %}
+                {% set category_with_series_found = False %}
+                {% for article in articles %}
+                    {% if category_item == category and article.category.series_list|count > 0 and not category_with_series_found %}
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">All series in {{article.category}}</span></h4>
+                      </div>
+                      <div class="panel-body">                    
+                        <ul class="list-group" id="series_list">
+                            {% for i in article.category.series_list %}
+                            <li class="list-group-item">
+                                <a href="{{ SITEURL }}/{{ i.url }}">{{i.title}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                      </div>
+                    </div>
+                    {% set category_with_series_found = True %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
         {% endif %}
     {% endif %}
 

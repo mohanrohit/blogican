@@ -13,17 +13,9 @@ DATE_FORMATS = {
   "en": "%Y %b %d"
 }
 
-STATIC_PATHS = ["static"]
+STATIC_PATHS = ["static", "images"]
 
 AUTHOR = u'Rohit Mohan'
-
-IGNORE_FILES = [
-  "tech/web-development-with-python-and-flask/*",
-  "tech/pyflask/*",
-  "tech/pygae/*",
-  "tech/web-development-with-python-and-flask/backup/*",
-  "tech/web-development-with-python-and-gae/*"
-]
 
 SUMMARY_MAX_LENGTH = 50
 
@@ -47,7 +39,6 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = False
 
 PLUGIN_PATHS = [current_directory + "/plugins"]
 PLUGINS = ["series", "series_list"]
-# PLUGINS = ["series", "series_list", "tipue_search"]
 
 DISPLAY_SERIES_ON_SIDEBAR = True
 SHOW_SERIES = True
