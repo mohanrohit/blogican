@@ -415,3 +415,10 @@ div.entry-content
 {
     color: black;
 }
+
+input[type="text"],
+input[type="email"],
+textarea
+{
+    width: 60%
+}

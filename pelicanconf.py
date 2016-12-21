@@ -21,6 +21,12 @@ SUMMARY_MAX_LENGTH = 50
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'authors', 'archives', 'search'))
 
+# broken in Pelican for tag generation
+# PAGINATION_PATTERNS = (
+  # (1, "{base_name}/", "{base_name}/index.html"),
+  # (2, "{base_name}/page/{number}/", "{base_name}/page/{number}/index.html"),
+# )
+
 # theming
 
 THEME = current_directory + "/theme/pelican-bootstrap3-custom"
@@ -61,14 +67,29 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-ARTICLE_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}'
-ARTICLE_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
+ARTICLE_URL = "{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}"
+ARTICLE_SAVE_AS = "{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}.html"
 
-DRAFT_URL = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}'
-DRAFT_SAVE_AS = '{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
+DRAFT_URL = "{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}"
+DRAFT_SAVE_AS = "{category}/{date:%Y}/{date:%m}/{date:%d}/{slug}.html"
 
-PAGE_URL = 'pages/{slug}'
-PAGE_SAVE_AS = 'pages/{slug}.html'
+PAGE_URL = "pages/{slug}"
+PAGE_SAVE_AS = "pages/{slug}/index.html"
+
+TAG_URL = "tag/{slug}"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+TAGS_URL = "tags/"
+TAGS_SAVE_AS = "tags/index.html"
+
+CATEGORY_URL = "category/{slug}"
+CATEGORY_SAVE_AS = "category/{slug}/index.html"
+CATEGORIESS_URL = "categories/"
+CATEGORIES_SAVE_AS = "categories/index.html"
+
+AUTHOR_URL = "author/{slug}"
+AUTHOR_SAVE_AS = "author/{slug}/index.html"
+AUTHORS_URL = "authors/"
+AUTHORS_SAVE_AS = "authors/index.html"
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
