@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 body {
     padding-top: 70px;
 }
@@ -263,13 +266,13 @@ figure.floatcenter, .align-center {
 /* custom css */
 body
 {
-    font-family: "Liberation Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: black;
 }
 
 code, pre
 {
-    font-family: "Liberation Mono", monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
 pre
